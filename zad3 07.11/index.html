@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+    <div id="wynik"></div>
+    <script>
+        function funkcja(arr) {
+            if (arr.every(item => typeof item === 'number')) {
+                
+                arr.sort((a, b) => b - a);
+                return arr[1];
+            } else if (arr.every(item => typeof item === 'string')) {
+                
+                arr.sort((a, b) => b.length - a.length);
+                return arr[1];
+            } else {
+                return "tablica zawiera mieszane typy";
+            }
+        }
+        const numery = [1, 5 ,10 ,15];
+        const slowa = ["ala", "robert", "stanislaw"];
+        const mieszane = [1, "ala", 3, "robert"];
+
+        const wynikDiv = document.getElementById("wynik");
+
+        wynikDiv.innerHTML += "tablica liczb: " + JSON.stringify(numery) + "<br>";
+        wynikDiv.innerHTML += "Drugi największy element: " + funkcja(numery) + "<br><br>";
+
+        wynikDiv.innerHTML += "tablica stringów: " + JSON.stringify(slowa) + "<br>";
+        wynikDiv.innerHTML += "drugi najdluzszy string: " + funkcja(slowa) + "<br><br>";
+
+        wynikDiv.innerHTML += "tablica mieszana: " + JSON.stringify(mieszane) + "<br>";
+        wynikDiv.innerHTML += funkcja(mieszane) + "<br>";
+    </script>
+</body>
+</html>
